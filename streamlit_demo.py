@@ -1,8 +1,7 @@
 
 from langchain_community.chat_models import ChatOllama
 import streamlit as st
-from langchain_core.globals import set_debug
-set_debug(True)
+
 st.title("Ask anything")
 with st.sidebar:
     st.title("provide your base url")
@@ -17,4 +16,5 @@ llm = ChatOllama(
 qn=st.text_input("Enter the qn: ")
 if qn:
     response=llm.invoke(qn)
+
     st.write(response.content)
